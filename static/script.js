@@ -24,13 +24,13 @@ $(document).ready(() => {
         let table = $(`<table></table>`);
         elem.append(table);
 
-        let headers = $(`<tr></tr>`);
+        // let headers = $(`<tr></tr>`);
         let table_body = $(`<tr></tr>`);
-        table.append(headers);
+        // table.append(headers);
         table.append(table_body);
 
         for(let header in short){
-            headers.append($(`<td>${header}</td>`));
+            // headers.append($(`<td>${header}</td>`));
             table_body.append($(`<td>${short[header]}</td>`));
         }
 
