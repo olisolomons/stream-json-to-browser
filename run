@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ -f ".env" ]
+then
+    source .env
+    node index.js $@
+else
+    echo "Please create a .env shell file to export MQTT_APP_ID and MQTT_APP_ACCESS_KEY enviroment variables."
+fi

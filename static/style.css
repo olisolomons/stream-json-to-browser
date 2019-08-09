@@ -1,0 +1,23 @@
+table,
+th,
+td {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  padding: 5px;
+}
+
+table {
+  margin: 10px;
+  table-layout: fixed;
+  width:calc(100% - 20px);
+}
+
+table:hover {
+  background-color: lightblue;
+}
