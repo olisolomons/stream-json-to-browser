@@ -10,4 +10,4 @@ export MQTT_APP_ID=username
 export MQTT_APP_ACCESS_KEY=password
 ```
 
-Run the server by running the `run` script.
+Run the server by running the `run` script. If an argument is provided it is interpreted as the ID of the device to subscribe to.
