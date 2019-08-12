@@ -16,7 +16,6 @@ app.use('/api', api);
 
 let clients = new Set();
 api.ws('/json-data', (ws, req) => {
-    console.log('connected');
     clients.add(ws);
 
     ws.on('close', () => {

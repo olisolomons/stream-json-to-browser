@@ -11,7 +11,8 @@ $(document).ready(() => {
 
         let time = new Date(data.metadata.time);
         let timeStr = time.toLocaleDateString();
-        timeStr += ` ${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`
+        timeStr +=
+            ` ${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`
 
         let short = {
             Time: timeStr,
@@ -29,7 +30,7 @@ $(document).ready(() => {
         // table.append(headers);
         table.append(table_body);
 
-        for(let header in short){
+        for (let header in short) {
             // headers.append($(`<td>${header}</td>`));
             table_body.append($(`<td>${short[header]}</td>`));
         }
@@ -38,11 +39,10 @@ $(document).ready(() => {
 
         table.expanded = false;
 
-        table.click(()=>{
-            console.log(table.expanded);
-            if(table.expanded){
+        table.click(() => {
+            if (table.expanded) {
                 table.row.remove();
-            }else{
+            } else {
                 table.row = $('<tr></tr>');
                 let wrapper = $('<td colspan="3"></td>');
 
@@ -51,7 +51,7 @@ $(document).ready(() => {
 
                 jsonTree.create(data, wrapper[0]);
 
-                wrapper.click(e=>{
+                wrapper.click(e => {
                     e.stopPropagation();
                 });
             }
