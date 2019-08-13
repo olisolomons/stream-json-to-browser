@@ -9,15 +9,10 @@ $(document).ready(() => {
         wrapper_id++;
         let data = JSON.parse(msg.data);
 
-        let time = new Date(data.metadata.time);
-        let timeStr = time.toLocaleDateString();
-        timeStr +=
-            ` ${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`
-
         let payload = base64toHEX(data.payload_raw);
 
         let short = {
-            Time: timeStr,
+            Time: formatDateTime(data.metadata.time),
             Counter: data.counter,
             Payload: payload
         };
@@ -74,4 +69,16 @@ function base64toHEX(base64) {
         HEX += (_hex.length == 2 ? _hex : '0' + _hex);
     }
     return HEX.toUpperCase();
+}
+
+
+
+
+function formatDateTime(time) {
+    const pad = x => (x + '').padStart(2, '0');
+    time = new Date(time);
+    let timeStr = time.toLocaleDateString();
+    timeStr +=
+        ` ${pad(time.getHours())}:${pad(time.getMinutes())}:${pad(time.getSeconds())}`
+    return timeStr;
 }
